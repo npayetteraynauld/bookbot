@@ -24,3 +24,21 @@ def sorted_chars(dic):
 
 def get_value(item):
     return item[1]
+
+def common_word(path):
+    word_dictionary = {}
+    words = get_book_text(path).split()
+    for word in words:
+        word = word.lower()
+        if word in word_dictionary:
+            word_dictionary[word] += 1
+        else:
+            word_dictionary[word] = 1
+    return word_dictionary 
+
+def sorted_common_word():
+    dic = common_word("books/frankenstein.txt")
+    sorted_dic = dict(sorted(dic.items(), key=lambda item : item[1], reverse = True))
+    print(sorted_dic)
+
+sorted_common_word() 
